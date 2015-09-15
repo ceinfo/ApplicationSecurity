@@ -154,8 +154,7 @@ class TuringTest
 		    	 		    	 
 		    	 // Check 1,2,3 if it's within the address zone
 		    	 // Check value of 3 within MAX_SIZE
-		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c) 
-		    		 	&& isInMaxMinDatatype(c)) {
+		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c)) {
 		    		 		bigstorage[c.intValue()] = (instrType.equals("ADD") ? 
 		    		 					bigstorage[a.intValue()].add(bigstorage[b.intValue()]) :
 		    		 					bigstorage[a.intValue()].subtract(bigstorage[b.intValue()]));
@@ -171,8 +170,7 @@ class TuringTest
 		    	  
 		    	 // Check 1,2,3 if it's within the address zone
 		    	 // Check value of 3 within MAX_SIZE
-		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c)
-		    		 	&& isInMaxMinDatatype(c)) {
+		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c)) {
 			    		 	bigstorage[c.intValue()] = bigstorage[a.intValue()].multiply(bigstorage[b.intValue()]);
 			    		 	System.out.println("\tMUL bigstorage[" + c + "]=" + bigstorage[c.intValue()]);
 			    		 	//System.out.println("\t\t count=" + mainCounter);
