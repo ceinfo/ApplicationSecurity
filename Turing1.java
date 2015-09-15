@@ -54,13 +54,16 @@ class TuringTest
 	
 	public static void main(String args[])
     {
+		
 		System.out.println("Output for Turing Machine Program:");       
-		//open input file for processing data 	
+
+		initializeStorage();
 		/***
 		for (int x=0; x<args.length; x++) {
 			System.out.println("args[" + x + "]=" + args[x]);
 		}
 		****/
+		//open input file for processing data 	
 		if (args.length < 1) {
 			shutdown("ERROR: must provide an input file on, exiting.  Usage: TuringTest <file>", 1);
 		}
@@ -253,6 +256,18 @@ class TuringTest
 		str += "]";
 		System.out.println(str);
 	}
+	
+	
+    //************************************************************************
+	// initializeStorage
+    //************************************************************************
+	static void initializeStorage() {
+		for (int x=0; x<MAX_STORAGE_SIZE; x++) {
+			bigstorage[x] = new BigInteger("0");
+		}
+	}
+	
+	
 	
 }
 
