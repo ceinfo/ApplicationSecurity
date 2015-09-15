@@ -140,8 +140,7 @@ class TuringTest
 	
 		    	 //Check 1 to see if it's within the storage space
 		    	 // Check 2 to see if it's in the int size
-		    	 if (a.intValue() < MAX_STORAGE_SIZE
-		    		&& isInMaxMinDatatype(b)) {
+		    	 if (isInStorageRange(a) && isInMaxMinDatatype(b)) {
 			    		 bigstorage[a.intValue()] = b;
 				    	 System.out.println("\tSET bigstorage[" + a + "]=" + bigstorage[a.intValue()]);
 		    	 } else {
@@ -155,8 +154,7 @@ class TuringTest
 		    	 		    	 
 		    	 // Check 1,2,3 if it's within the address zone
 		    	 // Check value of 3 within MAX_SIZE
-		    	 if (a.intValue() < MAX_STORAGE_SIZE && b.intValue() < MAX_STORAGE_SIZE 
-		    			&& c.intValue() < MAX_STORAGE_SIZE
+		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c) 
 		    		 	&& isInMaxMinDatatype(c)) {
 		    		 		bigstorage[c.intValue()] = (instrType.equals("ADD") ? 
 		    		 					bigstorage[a.intValue()].add(bigstorage[b.intValue()]) :
@@ -173,7 +171,7 @@ class TuringTest
 		    	  
 		    	 // Check 1,2,3 if it's within the address zone
 		    	 // Check value of 3 within MAX_SIZE
-		    	 if (a.intValue() < MAX_STORAGE_SIZE && b.intValue() < MAX_STORAGE_SIZE && c.intValue() < MAX_STORAGE_SIZE
+		    	 if (isInStorageRange(a) && isInStorageRange(b) && isInStorageRange(c)
 		    		 	&& isInMaxMinDatatype(c)) {
 			    		 	bigstorage[c.intValue()] = bigstorage[a.intValue()].multiply(bigstorage[b.intValue()]);
 			    		 	System.out.println("\tMUL bigstorage[" + c + "]=" + bigstorage[c.intValue()]);
@@ -188,7 +186,7 @@ class TuringTest
 		     else if (instrType.equals("DISP")) {
 		    	 BigInteger a = new BigInteger(lineSplit[1]);
 		    	 // Check 1 if it's within the address zone
-		    	 if (a.intValue() < MAX_STORAGE_SIZE) {	    
+		    	 if (isInStorageRange(a)) {	    
 		    		 	System.out.println("\tDISP bigstorage[" + a.intValue() + "]=" + bigstorage[a.intValue()]);
 		    	 } else {
 		    		 shutdown("ERROR: fail on DISP [" + line + "]", 1);
@@ -236,6 +234,15 @@ class TuringTest
 	static boolean isInMaxMinDatatype(BigInteger a) {
 		return (a.intValue()<=Integer.MAX_VALUE && a.intValue()>=Integer.MIN_VALUE);
 	}
+	
+    //************************************************************************
+	// isInStorageRange
+    //************************************************************************
+	static boolean isInStorageRange(BigInteger range) {
+		int intRange = range.intValue();
+		return (intRange<=MAX_STORAGE_SIZE && intRange>=0);
+	}
+
 	
     //************************************************************************
 	// shutdown - exit on major errors
