@@ -72,10 +72,10 @@ class TuringTest
 		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/testEmpty.dat";
 		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/testErrors.dat";
 		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/test.dat";
-		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/counters.dat";
+		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/addSub.dat";
 		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/fibonacci.dat";
 		fileName = "/Users/ceng/Documents/workspace/ApplicationSec_HW1_Eclipse/src/powersOfTwo.dat";
-		***/
+		**/
 		readFile(fileName);
     }
 
